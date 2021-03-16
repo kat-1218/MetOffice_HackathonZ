@@ -5,7 +5,7 @@ from shapely.geometry import Point
 import numpy as np
 
 
-hedgehogs_gdf = gpd.read_file("data/hedgehogs_2019.geojson", driver="GeoJSON")
+hedgehogs_gdf = gpd.read_file("../data/birds_2019.geojson", driver="GeoJSON")
 hedgehogs_gdf.to_crs({'init' :'epsg:27700'}, inplace=True)
 
 
@@ -30,7 +30,7 @@ for row in hedgehogs_gdf.itertuples():
 hedgehogs_gdf["geometry"] = gridded_points
 
 # Save
-# hedgehogs_gdf.to_file("data/gridded_10km_hedgehogs.geojson", driver="GeoJSON")
+hedgehogs_gdf.to_file("../data/gridded_10km_birds.geojson", driver="GeoJSON")
 
 # Plot
 # hedgehogs_gdf.plot()
